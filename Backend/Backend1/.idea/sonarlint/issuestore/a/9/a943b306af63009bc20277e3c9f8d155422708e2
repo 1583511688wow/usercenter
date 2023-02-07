@@ -1,0 +1,19 @@
+
+k	java:S117B"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ƒôþýÿÿÿÿ
+l	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ƒôþýÿÿÿÿ
+g	java:S117›"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËíÖ©
+i	java:S116'"ORename this field "SALT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÍÚ™þÿÿÿÿ
+<
+java:S1170'"!Make this final field static too.(œÍÚ™þÿÿÿÿ
+U
+java:S1854c":Remove this useless assignment to local variable "count1".(ªïâÃüÿÿÿÿ
+W
+java:S1854a"ARemove this useless assignment to local variable "queryWrapper1".(ºÿ”•
+H
+java:S1481a"2Remove this unused "queryWrapper1" local variable.(ºÿ”•
+F
+java:S1481c"+Remove this unused "count1" local variable.(ªïâÃüÿÿÿÿ
+N
+java:S1854›"7Remove this useless assignment to local variable "SWD".(ËíÖ©
+?
+java:S1481›"(Remove this unused "SWD" local variable.(ËíÖ©
