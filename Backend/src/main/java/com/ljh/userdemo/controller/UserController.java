@@ -1,6 +1,12 @@
 package com.ljh.userdemo.controller;
 
 
+import com.alibaba.csp.sentinel.Entry;
+import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
+import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ljh.userdemo.common.BaseResponse;
 import com.ljh.userdemo.common.ErrorCode;
@@ -11,14 +17,13 @@ import com.ljh.userdemo.model.domain.request.UserLoginRequest;
 import com.ljh.userdemo.model.domain.request.UserRegisterRequest;
 import com.ljh.userdemo.service.UserService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -117,6 +122,50 @@ public class UserController {
     }
 
 
+
+    @GetMapping("/gettest")
+    public String searchUsers( ){
+
+
+
+
+
+        //1.进行限流控制
+        try (Entry entry = SphU.entry("Hello")){//限流入口
+
+
+            return "Hello Sentinel!";//被保护的资源
+        } catch (BlockException e) {
+            e.printStackTrace();
+            return "系统繁忙，请稍候";//被限流或者降级的处理
+        }
+
+
+    }
+
+//    /**
+//     * 定义限流规则
+//     * @PostConstruct ：在构造函数执行完毕后执行
+//     */
+//    @PostConstruct
+//    public void initFlowRules(){
+//        //1.创建存放限流规则的集合
+//        List<FlowRule> rules = new ArrayList<FlowRule>();
+//
+//        //2.创建限流规则
+//        FlowRule rule = new FlowRule();
+//        //定义资源
+//        rule.setResource("Hello");
+//        //定义限流规则类型,RuleConstant.FLOW_GRADE_QPS：OPS类型
+//        rule.setGrade(RuleConstant.FLOW_GRADE_QPS);
+//        //定义OPS每秒最多只能通过的请求个数
+//        rule.setCount(2);
+//        //将限流规则添加到集合中
+//        rules.add(rule);
+//
+//        //3.加载限流规则
+//        FlowRuleManager.loadRules(rules);
+//    }
 
 
     //根据用户名查询用户

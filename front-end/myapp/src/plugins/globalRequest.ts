@@ -24,11 +24,15 @@ request.interceptors.request.use((url, options): any => {
   console.log('do request url', url)
 
 
+
+
   return {
     url,
     options: {
       ...options,
       headers: {
+
+        Authorization: 5555
       },
     },
   };
